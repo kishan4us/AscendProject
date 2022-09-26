@@ -28,5 +28,3 @@ npm run dev
 npm run build
 ```
 
-VITE_WEATHER_API_URL=https://api.openweathermap.org/data/2.5/weather
-VITE_WEATHER_API_KEY=38f3cdba87636747d8fc036384a71f63
