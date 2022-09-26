@@ -15,7 +15,7 @@ export default {
       city: '',
       hasData: true,
       hasSearched: false,
-      active: true
+      active: false
     }
   },
   methods: {
