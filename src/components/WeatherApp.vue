@@ -14,7 +14,8 @@ export default {
       weather: {},
       city: '',
       hasData: true,
-      hasSearched: false
+      hasSearched: false,
+      active: true
     }
   },
   methods: {
@@ -62,14 +63,14 @@ export default {
                   <input type="search" v-model="city" class="form-control" @keyup.enter="searchweather" placeholder="Enter city name" />
                 </div>
                 <button type="submit" class="btn btn-primary" @click="searchweather">
-                  <i class="fa fa-search" style="color:white"></i>
+                  <i class="fa fa-search" style="color:white"> </i>
                 </button>
               </div>
               </div>
             </div>
           </div>
         <div class="row justify-content-center">
-            <div class="col-12 col-md-12 col-sm-12 col-xs-12"> 
+            <div class="col-12 col-md-12 col-sm-12 col-xs-12" v-if="active"> 
                 <div class="card p-4" v-if="hasData && hasSearched">    
                     <div class="d-flex">
                         <h6 class="flex-grow-1 text-dark">
