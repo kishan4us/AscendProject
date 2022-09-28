@@ -6,10 +6,21 @@
 }
 
 body {
-    background-color: #585674;
+    /* background-color:  #585674; */
+    background-color: #3d3e4b;
     display: grid;
     place-items: center;
-    
+    background-image: url('./images/earthChangingWeather.gif');
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    background-attachment: fixed;
+    background-blend-mode: color-dodge;
+    animation: anim-ss steps(120) 25s infinite;
+}
+@keyframes anim-ss {
+    0% {background-position: -50%;} 
+    50% {background-position: 100%, center;} 
+    100% {background-position: 200%;} 
 }
 
 .card {
