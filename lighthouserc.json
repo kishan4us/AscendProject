@@ -2,7 +2,7 @@
     "ci": {
       "collect": {
         "staticDistDir": "./public",
-        "url": ["http://localhost:5173/", "https://salmon-bush-07e814710.1.azurestaticapps.net/"]
+        "url": ["https://salmon-bush-07e814710.1.azurestaticapps.net/"]
       }
     }
   }
