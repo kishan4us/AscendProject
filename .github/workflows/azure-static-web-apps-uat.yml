@@ -40,18 +40,15 @@ jobs:
           ###### End of Repository/Build Configurations ######
       
       - run: mkdir /tmp/artifacts
-      
-      - name: Run Lighthouse CI
-        uses: foo-software/lighthouse-check-action@master
-        with:
-          outputDirectory: /tmp/artifacts
-          urls: 'https://salmon-bush-07e814710.1.azurestaticapps.net'
 
-      - name: Upload artifacts
-        uses: actions/upload-artifact@master
+      - name: Run Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v9
         with:
-          name: Lighthouse reports
-          path: /tmp/artifacts
+          urls: |
+            https://salmon-bush-07e814710.1.azurestaticapps.net
+          budgetPath: ./budget.json # test performance budgets
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
