@@ -6,11 +6,11 @@
 }
 
 body {
-    /* background-color:  #585674; */
-    background-color: #3d3e4b;
+    background-color: #343543f6;
     display: grid;
     place-items: center;
-    background-image: url('./images/earthChangingWeather.gif');
+    background-image: url('./images/earthChangingWeather.gif'), radial-gradient(#5c6090, #463f4ff6, #2e2f3a), linear-gradient(-45deg, #3f3058, #3d3c30, #333e6b);
+    /* background-image: url('./images/earthChangingWeather.gif'); */
     background-repeat: no-repeat;
     background-blend-mode: hard-light;
     background-attachment: fixed;
@@ -18,8 +18,8 @@ body {
     animation: anim-ss steps(120) 25s infinite;
 }
 @keyframes anim-ss {
-    0% {background-position: -50%;} 
-    50% {background-position: 100%, center;} 
+    0% {background-position: -75%;} 
+    50% {background-position: 75%, center;} 
     100% {background-position: 200%;} 
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 .apptitle {
-    background-color: #2d284a;
+    background-color: #37305e;
     border-radius: 20px;
     color: #6f707d;
     font-family: 'Marcellus', serif;

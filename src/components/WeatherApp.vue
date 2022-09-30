@@ -13,18 +13,23 @@ export default {
     return{
       weather: {},
       city: '',
+      lastCity: '',
       hasData: true,
       hasSearched: false,
       active: false
     }
   },
   methods: {
-    searchweather () {
+    searchweather() {
+      if (this.city === this.lastCity || !this.city) return;
+      this.lastCity = this.city;
       fetch(`${apiURL}?q=${this.city}&appid=${apiKey}`).then((r) => r.json()).then(data => {
         console.log(data);
         this.hasSearched = true;
         if (data.cod == 200) {
           this.weather = data;
+          this.weather.sunTime = (Math.random() * (11-0.1) + 0.1).toFixed(1);
+          // this.weather.sunTime = (Math.random() * 10 + 0.1).toFixed(1);
           this.hasData = true;
         } else this.hasData = false;
       }).catch(e => { this.hasData = false; });
@@ -112,7 +117,7 @@ export default {
 
                             <p class="my-1"> 
                               <i class="fa fa-duotone fa-sun text-primary"></i>
-                                <span>&nbsp;{{(Math.random()*10 + 0.1).toFixed(1)}} h </span>
+                                <span>&nbsp;{{weather.sunTime}} h </span>
                             </p>
                         </div>
                         
