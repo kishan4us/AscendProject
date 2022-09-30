@@ -16,7 +16,7 @@ export default {
       lastCity: '',
       hasData: true,
       hasSearched: false,
-      active: false
+      active: true
     }
   },
   methods: {
@@ -65,7 +65,7 @@ export default {
               <div class="px-4 pb-2">
                 <div class="input-group justify-content-center">
                 <div class="form-outline">
-                  <input type="search" v-model="city" class="form-control" @keyup.enter="searchweather" placeholder="Enter city name" />
+                  <input type="search" name="city" v-model="city" class="form-control" @keyup.enter="searchweather" placeholder="Enter city name" />
                 </div>
                 <button type="submit" class="btn btn-primary" @click="searchweather">
                   <i class="fa fa-search" style="color:white"> </i>
