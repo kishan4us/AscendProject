@@ -1,8 +1,0 @@
-{
-    "ci": {
-      "collect": {
-        "staticDistDir": "./public",
-        "url": ["https://salmon-bush-07e814710.1.azurestaticapps.net/"]
-      }
-    }
-  }
