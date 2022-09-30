@@ -42,7 +42,14 @@ jobs:
       - name: Run Lighthouse CI
         uses: foo-software/lighthouse-check-action@master
         with:
+          outputDirectory: /tmp/artifacts
           urls: 'https://salmon-bush-07e814710.1.azurestaticapps.net'
+
+      - name: Upload artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: Lighthouse reports
+        path: /tmp/artifacts
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
