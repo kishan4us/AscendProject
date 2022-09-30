@@ -39,6 +39,8 @@ jobs:
           output_location: "dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
       
+      - run: mkdir /tmp/artifacts
+      
       - name: Run Lighthouse CI
         uses: foo-software/lighthouse-check-action@master
         with:
