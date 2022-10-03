@@ -1,9 +1,6 @@
 name: Azure Static Web Apps CI/CD
 
 on:
-  push:
-    branches:
-      - dev
   pull_request:
     branches:
       - uat
@@ -38,14 +35,19 @@ jobs:
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
           app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
+          # api_location: "" # Api source code path - optional
           output_location: "dist" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
       
+      - run: mkdir /tmp/artifacts
+
       - name: Run Lighthouse CI
-        uses: treosh/lighthouse-ci-action@v2
+        uses: treosh/lighthouse-ci-action@v9
         with:
-          configPath: "./lighthouserc.json"
+          urls: |
+            https://salmon-bush-07e814710.1.azurestaticapps.net
+          budgetPath: ./budget.json # test performance budgets
+          uploadArtifacts: true # save results as an action artifacts
           temporaryPublicStorage: true
 
   close_pull_request_job:

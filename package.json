@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "scripts": {
     "build": "vite build",
-    "test:unit": "vue-cli-service test:unit --no-cache",
     "dev": "vite",
     "preview": "vite preview --port 4173"
   },

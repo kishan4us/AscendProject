@@ -1,8 +1,0 @@
-{
-    "ci": {
-      "url": ["http://localhost:5173/"],
-      "collect": {
-        "staticDistDir": "./public"
-      }
-    }
-  }
