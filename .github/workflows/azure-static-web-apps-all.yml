@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD
+name: UAT and Prod deployment
 
 on:
   pull_request:
@@ -57,10 +57,24 @@ jobs:
     environment: prod
     needs: [build_and_deploy_uat]
     steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      
+      - name: Create .env with Github Secrets
+        run: |
+          touch .env
+          echo VITE_WEATHER_API_URL=${{ secrets.VITE_WEATHER_API_URL }} >> .env
+          echo VITE_WEATHER_API_KEY=${{ secrets.VITE_WEATHER_API_KEY }} >> .env
+          # npm run script-that-accesses-env-vars
+        env:
+          VITE_WEATHER_API_URL: ${{ secrets.VITE_WEATHER_API_URL }}
+          VITE_WEATHER_API_KEY: ${{ secrets.VITE_WEATHER_API_KEY }}
       - name: Production deployment
         id: proddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
+          approvers: tanmayKumarSarkar,kishan4us,be-shekhar
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_GROUND_0A897CF10 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
