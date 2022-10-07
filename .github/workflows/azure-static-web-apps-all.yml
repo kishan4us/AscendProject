@@ -53,7 +53,7 @@ jobs:
 
   deploy_prod:
     runs-on: ubuntu-latest
-    name: Deploy to prod
+    name: Deploy to Prod
     environment: prod
     needs: [build_and_deploy_uat]
     steps:
